@@ -2,7 +2,7 @@
 import os
 import shutil
 
-# Make.fun entrypoint for news-image-20261121
+# Make.fun entrypoint for news-image-20261121: 21 November World News Infographic
 def main():
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
@@ -12,7 +12,9 @@ def main():
     dst_png = os.path.join(out_dir, "entry.png")
     
     shutil.copyfile(src_png, dst_png)
-    print(f"Delivered {dst_png} ({os.path.getsize(dst_png)} bytes)")
+    file_size = os.path.getsize(dst_png)
+    print(f"Successfully generated world news infographic: {dst_png} ({file_size} bytes)")
 
 if __name__ == "__main__":
     main()
+
